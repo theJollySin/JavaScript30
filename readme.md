@@ -2,14 +2,10 @@
 
 # JavaScript30
 
-Starter Files + Completed solutions for the JavaScript 30 Day Challenge. 
+This is forked from the eponomous 30-day coding challenge.
 
 Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
-## Pull Requests
+## Finished Pages
 
-These are meant to be 1:1 copies of what is done in the video. If you found a better / different way to do things, great, but I will be keeping them the same as the videos. 
-
-The starter files + solutions will be updated if/when the videos are updated. 
-
-Thanks!
+* [JS Drum Kit](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index-START.html)
