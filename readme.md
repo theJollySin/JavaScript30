@@ -2,7 +2,7 @@
 
 # JavaScript30
 
-This is forked from the eponomous 30-day coding challenge.
+This is forked from the eponymous 30-day coding challenge.
 
 Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
