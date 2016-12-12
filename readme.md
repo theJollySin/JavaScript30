@@ -8,4 +8,6 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 ## Finished Pages
 
-* [JS Drum Kit](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index-START.html)
+What follows are finished pages from the coding challenge.
+
+1. [JS Drum Kit](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index-START.html)
