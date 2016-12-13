@@ -9,9 +9,12 @@
 
     <div class="clock">
       <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
+        <div id="hour-hand" class="hand hour-hand-total">
+          <div class="hour-hand-left"></div>
+          <div class="hour-hand-right"></div>
+        </div>
+        <div id="min-hand" class="hand min-hand"></div>
+        <div id="sec-hand" class="hand second-hand"></div>
       </div>
     </div>
 
@@ -67,12 +70,63 @@
       -webkit-transform-origin: 100%; /* Chrome, Safari, Opera */
       transform: rotate(90deg);
       transform-origin: 100%;
+      -webkit-transition-timing-function: cubic-bezier(.46,.53,.88,1.26);
+      transition-timing-function: cubic-bezier(.46,.53,.88,1.26);
+      -webkit-transition-duration: 0.1s; /* Safari */
+      transition-duration: 0.1s;
+    }
+    .hour-hand-total {
+      height: 8px;
+      border: 0;
+      background:0;
+    }
+    .hour-hand-left {
+      height: 0px;
+      width: 25%;
+      float: left;
+      border: 0;
+      background:0;
+    }
+    .hour-hand-right {
+      height: 8px;
+      width: 75%;
+      float: right;
+      background:black;
+    }
+    .second-hand {
+      height: 4px;
     }
 
   </style>
 
   <script>
+// create date/time object
+var d = new Date();
+// select three hands on the clock
+var hourHand = document.getElementById('hour-hand');
+var minHand = document.getElementById('min-hand');
+var secHand = document.getElementById('sec-hand');
 
+
+function updateClock() {
+  // update the clock hands to match the time
+  d = new Date();
+  var hr = d.getHours();
+  var min = d.getMinutes();
+  var sec = d.getSeconds();
+ 
+  var hrAngle = (360 / 12) * (hr % 12) + 90;
+  var minAngle = (360 / 60) * (min % 60) + 90;
+  var secAngle = (360 / 60) * (sec % 60) + 90;
+
+  // TODO: serious glitch at the 12-o'clock mark
+  hourHand.style.transform = "rotate(" + hrAngle.toString() + "deg)";
+  minHand.style.transform = "rotate(" + minAngle.toString() + "deg)";
+  secHand.style.transform = "rotate(" + secAngle.toString() + "deg)";
+}
+
+// move the clock, every one second
+setInterval(updateClock, 1000);
 
   </script>
 </body>
