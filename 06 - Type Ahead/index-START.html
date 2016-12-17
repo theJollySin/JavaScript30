@@ -10,12 +10,72 @@
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
+      <li>Filter by city</li>
+      <li>or state</li>
     </ul>
   </form>
 <script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+var endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+var places = [];
+var suggestions = document.querySelector('.suggestions');
+var search = document.querySelector('.search');
+var lat = -999;
+var lon = -999;
+var hasPosi = false;
+
+fetch(endpoint)
+  .then(function(blob) {return blob.json();})
+  .then(function(data) {places = data;})
+
+function positionFound(position) {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+    hasPosi = true;
+}
+
+var findMatches = function(word, place) {
+  var giRegex = new RegExp(word, 'gi');
+  return place.city.match(giRegex) || place.state.match(giRegex);
+}
+
+var sortMatches = function(matches) {
+  if (hasPosi) {
+    matches.sort(function(m1, m2){
+      return (Math.sqrt(Math.pow((m1.latitude  - lat), 2)) + 
+              Math.sqrt(Math.pow((m1.longitude - lon), 2))) > 
+             (Math.sqrt(Math.pow((m2.latitude  - lat), 2)) +
+              Math.sqrt(Math.pow((m2.longitude - lon), 2)));
+    })
+  } else {
+    matches.sort(function(m1, m2){
+      return m1.city > m2.city;
+    });
+  }
+  return matches;
+};
+
+var doSearch = function(){
+  var word = document.querySelector('.search').value;
+  if (word.length < 1) {
+    suggestions.innerHTML = '<li>Filter by city</li><li>or state</li>';
+    return;
+  }
+  var matches = places.filter(function(place){
+    return findMatches(word, place);
+  });
+  matches = sortMatches(matches);
+  var suggestText = '';
+  matches.forEach(function(match){
+    suggestText += '<li>' + match.city + ', ' + match.state + '</li>';
+  });
+  suggestions.innerHTML = suggestText;
+}
+
+search.addEventListener('change', doSearch);
+search.addEventListener('keyup', doSearch);
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(positionFound);
+}
 
 </script>
   </body>
