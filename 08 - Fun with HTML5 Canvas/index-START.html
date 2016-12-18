@@ -7,6 +7,65 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+  // set up drawing parameters
+  var lastX = 0;
+  var lastY = 0;
+  var isDrawing = false;
+  var maxWidth = 50;
+  var minWidth = 5;
+  var hue = 1;
+  var direction = 1;
+
+  // set up canvas
+  var canvas = document.getElementById('draw');
+  var ctx = canvas.getContext('2d');
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+  ctx.lineWidth = minWidth;
+  ctx.strokeStyle = 'red';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+
+  var stopDrawing = function() {
+  	isDrawing = false;
+  }
+
+  var startDrawing = function(e) {
+  	isDrawing = true;
+  	lastX = e.offsetX;
+  	lastY = e.offsetY;
+  }
+
+  var draw = function(e) {
+  	if (!isDrawing) {
+  		return;
+  	}
+  	// handle the drawing
+  	ctx.strokeStyle = 'hsl(' + hue.toString() + ', 100%, 50%)';
+  	ctx.beginPath();
+	ctx.moveTo(lastX, lastY);
+	ctx.lineTo(e.offsetX, e.offsetY);
+	ctx.stroke();
+
+	// reset current location
+  	lastX = e.offsetX;
+  	lastY = e.offsetY;
+
+    // make the line change widths
+  	if (ctx.lineWidth > maxWidth || ctx.lineWidth < minWidth) {
+      direction *= -1;
+    }
+  	ctx.lineWidth += direction;
+
+    // draw in rainbow colors
+  	hue += 0.25;
+  	hue %= 360;
+  }
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseout', stopDrawing);
 </script>
 
 <style>
