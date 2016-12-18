@@ -42,11 +42,11 @@
 
     p {
       margin:0;
-      padding:20px;
+      padding:15px;
       transition:background 0.2s;
       flex:1;
       font-family:'helvetica neue';
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 200;
       border-left: 1px solid #D1E2FF;
     }
@@ -104,6 +104,31 @@
   </div>
 
 <script>
+var checkboxes = document.querySelectorAll('.item input');
+var numBoxes = checkboxes.length;
+var i = 0;
+var lastChecked = -1;
+
+var handleCheck = function(e){
+    var j = 0;
+    var diff = 0;
+    if (e.shiftKey && lastChecked > -1){
+      diff = e.target.value < lastChecked ? 1 : -1;
+      for (j = parseInt(e.target.value); j != lastChecked; j += diff) {
+        checkboxes[j].checked = true;
+      }
+    } else {
+      lastChecked = e.target.checked ? e.target.value : -1;
+    }
+  };
+
+// init check boxes and add listeners
+for(i=0; i < numBoxes; i += 1) {
+  checkboxes[i].value = i;
+  checkboxes[i].checked = false;
+  checkboxes[i].addEventListener('click', handleCheck);
+}
+
 </script>
 </body>
 </html>
