@@ -12,34 +12,71 @@
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
     function makeGreen() {
-      const p = document.querySelector('p');
+      var p = document.querySelector('p');
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
 
     // Regular
+    console.log(dogs[0].name);
+
+    // Table
+    console.table(dogs);
 
     // Interpolated
+    console.log('Hello, %s!', 'World');
 
     // Styled
+    console.log('%c Hello, World(s)!', 'background: red;');
 
     // warning!
+    console.warn('Wait, worlds? Plural?');
 
     // Error :|
+    console.error('Engineer is off his meds again.');
 
     // Info
+    console.info('The HTTP protocol is currently only available on Earth.');
 
     // Testing
-
-    // clearing
+    console.assert('Mars' === 'Earth', "Whoops, find your pills.")
 
     // Viewing DOM Elements
+    var p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
+
+    // clearing
+    console.clear();
 
     // Grouping together
+    dogs.forEach(function(dog){
+      console.groupCollapsed(dog.name);
+      console.log('Dog is called: ' + dog.name);
+      console.log('Dog is ' + dog.age.toString() + ' years old.')
+      console.groupEnd(dog.name);
+    });
 
     // counting
+    console.count(dogs[0].name);
+    console.count(dogs[0].name);
+    console.count(dogs[1].name);
+    console.count(dogs[1].name);
+    console.count(dogs[0].name);
+    console.count(dogs[1].name);
+    console.count(dogs[0].name);
+    console.count(dogs[1].name);
+    console.count(dogs[1].name);
+    console.count(dogs[0].name);
 
     // timing
+    console.time('fetching Yelp');
+    fetch('https://github.com/theJollySin/JavaScript30')
+      .then(function(blob){return blob.json()})
+      .then(function(blob){
+        console.time('fetching Yelp');
+        console.log(blob);
+      });
 
   </script>
 </body>
