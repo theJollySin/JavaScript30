@@ -37,6 +37,7 @@
   }
 
   var draw = function(e) {
+  	// master drawing function
   	if (!isDrawing) {
   		return;
   	}
@@ -62,10 +63,15 @@
   	hue %= 360;
   }
 
+  // event handlers
   canvas.addEventListener('mousedown', startDrawing);
   canvas.addEventListener('mousemove', draw);
   canvas.addEventListener('mouseup', stopDrawing);
   canvas.addEventListener('mouseout', stopDrawing);
+
+  // TODO: on mobile, finger pressure determines width?
+  // TODO: A LOT more configurable and less random
+
 </script>
 
 <style>
