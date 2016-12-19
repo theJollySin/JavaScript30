@@ -2,11 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <title>Totally Legal Key Logging</title>
 </head>
 <body>
 <script>
+
+var secretPassword = "mellon";
+var passLength = secretPassword.length;
+var partialKeyLog = [];
+
+document.addEventListener('keydown', function(e){
+  partialKeyLog.push(e.key);
+  partialKeyLog.splice(-1 - passLength, partialKeyLog.length - passLength);
+  if (partialKeyLog.join("") === secretPassword) {
+  	document.title = "The Elvish Word for Friend";
+  }
+});
+
+// TODO: It would be nice if this were more flexible. Maybe it could have default values, but take the password and new title from variables in the page.
+// TODO: OR maybe it should send the user to a new webpage.
+// TODO: https://en.wikipedia.org/wiki/The_Road_Goes_Ever_On_(song)
+
 </script>
 </body>
 </html>
