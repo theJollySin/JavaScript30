@@ -20,15 +20,66 @@
       <li>Loading Tapas...</li>
     </ul>
     <form class="add-items">
-      <input type="text" name="item" placeholder="Item Name" required>
-      <input type="submit" value="+ Add Item">
+      <input id="newItemBox" type="text" name="item" placeholder="Item Name" required>
+      <input id="submit" type="submit" value="+ Add Item">
     </form>
   </div>
 
 <script>
-  const addItems = document.querySelector('.add-items');
-  const itemsList = document.querySelector('.plates');
-  const items = [];
+  // Check browser support
+  var hasStorage = false;
+  if (typeof(Storage) !== "undefined") {
+    hasStorage = true;
+  }
+  // Find Page Elements
+  var addItems = document.querySelector('.add-items');
+  var itemList = document.querySelector('.plates');
+  var newItemBox = document.getElementById('newItemBox');
+  // Menu Items (possibly from localStorage)
+  var items = (hasStorage && JSON.parse(localStorage.getItem("menu"))) || [];
+  var itemsChecked = (hasStorage && JSON.parse(localStorage.getItem("menuChecked"))) || [];
+
+  var refreshItemList = function() {
+    // build the HTML menu list
+    var plateList = [];
+    for (var i=0; i < items.length; i += 1){
+      var ii = i.toString();
+      plateList.push('<li><input type="checkbox" data-index="' + ii + '" id="item' + ii + '"' + (itemsChecked[i] ? ' checked="checked"' : '') + ' /><label for="item' + ii + '" >' + items[i] + '</label></li>');
+    }  
+    itemList.innerHTML = plateList.join("");
+  };
+  refreshItemList();
+
+  var updateStorage = function() {
+    if (hasStorage) {
+      localStorage.setItem("menu", JSON.stringify(items));
+      localStorage.setItem("menuChecked", JSON.stringify(itemsChecked));
+    }
+  };
+
+  var menuFormSubmit = function(e){
+    // Handle adding a new menu item to the page
+    e.preventDefault();
+    items.push(newItemBox.value);
+    itemsChecked.push(false);
+    updateStorage();
+    newItemBox.value = '';
+    refreshItemList();
+  };
+
+  var menuClick = function(e){
+    if (e.target.type === "checkbox") {
+      var index = parseInt(e.target.dataset.index);
+      itemsChecked[index] = !itemsChecked[index];
+      updateStorage();
+    }
+  };
+
+  // Event Handlers
+  addItems.addEventListener('submit', menuFormSubmit);
+  itemList.addEventListener('click', menuClick);
+
+  // TODO: Add clear-all, (de)/highlight-all buttons. Simple-looking.
 
 </script>
 
