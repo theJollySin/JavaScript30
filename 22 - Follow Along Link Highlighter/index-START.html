@@ -26,7 +26,22 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    var highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.append(highlight);
+      
+    var highlightMe = function(e) {
+      var linkRect = this.getBoundingClientRect();
+
+      highlight.style.width = linkRect.width.toString() + "px";
+      highlight.style.height = linkRect.height.toString() + "px";
+      highlight.style.transform = "translate(" + (linkRect.left + window.scrollX).toString() + "px, " + (linkRect.top + window.scrollY).toString() + "px)";
+      highlight.style.TransitionTimingFunction = "cubic-bezier(.31,-0.32,.73,1.44) ";
+    };
+
+    Array.from(document.querySelectorAll('a')).forEach(function(a) {
+      a.addEventListener('mouseenter', highlightMe);
+    });
   </script>
 </body>
 </html>
