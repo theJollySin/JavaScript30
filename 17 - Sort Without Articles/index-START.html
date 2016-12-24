@@ -43,8 +43,29 @@
   <ul id="bands"></ul>
 
 <script>
-const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+var articles = ['The ', 'A ', 'An '];
+var bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+var writeBandList = function() {
+  var txt = bands
+    .sort(function(b1, b2) {
+      articles.forEach(function(art){
+        if (b1.slice(0, art.length) === art) {
+          b1 = b1.slice(art.length);
+        }
+        if (b2.slice(0, art.length) === art) {
+          b2 = b2.slice(art.length);
+        }
+      });
+
+      return b1 > b2;
+    })
+    .map(function(band) {
+      return '<li>' + band + '</li>';
+    }).join('');
+    document.getElementById('bands').innerHTML = txt;
+};
+writeBandList();
 
 </script>
 

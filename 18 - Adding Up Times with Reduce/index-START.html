@@ -5,6 +5,7 @@
   <title>Videos</title>
 </head>
 <body>
+  <h1>Total Time: <span id=totalTime></span></h1>
   <ul class="videos">
     <li data-time="5:43">
       Video 1
@@ -177,11 +178,42 @@
     <li data-time="1:56">
       Video 57
     </li>
-    <li data-time="4:04">
+    <li data-time="4:06">
       Video 58
     </li>
+  </ul>
 
 <script>
+
+var totalHeading = document.getElementById('totalTime');
+var times = Array.from(document.querySelectorAll('.videos li'));
+
+var total = times.reduce(function(tot, tim) {
+  var timeArray = tim.dataset.time.split(':');
+  var sec = parseFloat(timeArray[1]);
+  var min = parseFloat(timeArray[0]);
+  return tot + sec + 60 * min;
+}, 0);
+
+Number.prototype.pad = function(size) {
+  // adding a helper method to Numbers
+  // convert to strings, and pad left with zeros
+  var s = String(this);
+  while (s.length < (size || 2)) {s = "0" + s;}
+  return s;
+}
+
+var calcTotal = function(total) {
+  // write total run time to HTML (from seconds, to human readable)
+  var hrs = Math.floor(total / 3600);
+  total -= hrs * 3600;
+  var min = Math.floor(total / 60);
+  total -= min * 60;
+  totalTime.innerHTML = [hrs.toString(), min.pad(2), total.pad(2)].join(':');
+}
+
+calcTotal(total);
+
 </script>
 </body>
 </html>
