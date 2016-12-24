@@ -7,7 +7,7 @@
 <body>
 
   <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
+    <h1 contenteditable>Hero</h1>
   </div>
 
   <style>
@@ -31,6 +31,20 @@
   </style>
 
 <script>
+// H1 elements in the div with class "hero"
+var hero = document.querySelector('.hero h1');
+var shadowColor = 'rgba(100,100,100,1)';
+var maxShadow = 50;
+
+var magicShadow = function(e) {
+  // the mouse is a spotlight, casting a shadow
+  var X = -maxShadow * ((e.clientX - hero.offsetLeft - hero.clientWidth / 2) / hero.offsetLeft);
+  var Y = -maxShadow * ((e.clientY - hero.offsetTop - hero.clientHeight / 2) / hero.offsetTop);
+  hero.style.setProperty('text-shadow', X + 'px ' + Y + 'px 15px ' + shadowColor);
+};
+
+document.addEventListener('mousemove', magicShadow);
+
 </script>
 </body>
 </html>
