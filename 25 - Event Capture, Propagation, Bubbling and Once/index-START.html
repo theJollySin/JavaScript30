@@ -37,8 +37,24 @@
   }
 </style>
 
-<button></button>
+<button id="butt" style="background-color: #003B6F; padding: 5px;"></button>
 <script>
+
+var logAClick = function(e) {
+  // just to show what div you are currently in
+  //e.stopPropagation();
+  console.log(this.classList.value);
+};
+
+// make all 3 divs clickable
+document.querySelectorAll('div').forEach(function(div) {
+  div.addEventListener('click', logAClick, {capture: false});
+});
+
+// some jokes are only funny once
+document.getElementById("butt").addEventListener("click", function(){
+  console.log("This joke is only funny once, if at all.");
+}, {once: true});
 
 </script>
 </body>
