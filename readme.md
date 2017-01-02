@@ -20,23 +20,18 @@ What follows are finished pages from the coding challenge.
 8. [HTML Canvas](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/08%20-%20Fun%20with%20HTML5%20Canvas/index-START.html)
 9. [Console Fun](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/09%20-%20Dev%20Tools%20Domination/index-START.html)
 10. [Checkbox Shifting](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index-START.html)
-11. MP4 Video Player
 12. [The Konami Code](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/12%20-%20Key%20Sequence%20Detection/index-START.html)
 13. [Slide in on Scroll](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/13%20-%20Slide%20in%20on%20Scroll/index-START.html)
-14. JavaScript References VS Copying
-15. LocalStorage
-16. Mouse Move Shadow
-17. Sort Without Articles
-18. Adding Up Times with Reduce
-19. Webcam Fun
-20. Speech Detection
-21. Geolocation
-22. Follow Along Link Highlighter
+14. [JavaScript References VS Copying](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/14 - JavaScript References VS Copying/index-START.html)
+15. [LocalStorage](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/15 - LocalStorage/index-START.html)
+16. [Mouse Move Shadow](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/16 - Mouse Move Shadow/index-start.html)
+17. [Sort Without Articles](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/17 - Sort Without Articles/index-START.html)
+18. [Adding Up Times with Reduce](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/18 - Adding Up Times with Reduce/index-START.html)
+22. [Follow Along Link Highlighter](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/22 - Follow Along Link Highlighter/index-START.html)
 23. Speech Synthesis
-24. Sticky Nav
-25. Event Capture, Propagation, Bubbling and Once
-26. Stripe Follow Along Nav
-27. Click and Drag
+24. [Sticky Nav](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/24 - Sticky Nav/index-START.html)
+25. [Event Capture, Propagation, Bubbling and Once](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/25 - Event Capture%2C Propagation%2C Bubbling and Once/index-START.html)
+27. [Click and Drag](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/27 - Click and Drag/index-START.html)
 28. Video Speed Controller
-29. Countown Timer
-30. Whack A Mole
+29. [Countown Timer](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/29 - Countown Timer/index.html)
+30. [Whack A Mole](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/30 - Whack A Mole/index-START.html)

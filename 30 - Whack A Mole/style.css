@@ -21,6 +21,17 @@ h1 {
   margin-bottom: 0;
 }
 
+button {
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 auto;
+  text-align: center;
+  font-size: 2rem;
+  background:rgba(255,255,255,0.2);
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
 .score {
   background:rgba(255,255,255,0.2);
   padding:0 3rem;
