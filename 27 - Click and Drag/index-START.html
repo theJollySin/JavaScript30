@@ -35,6 +35,34 @@
   </div>
 
 <script>
+
+var isDown = false;
+var startX = 0;
+var scrollLeft = 0;
+var slider = document.getElementsByClassName('items')[0];
+
+slider.addEventListener('mousedown', function(e) {
+  e.preventDefault();
+  isDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+  slider.classList.add('active');
+});
+slider.addEventListener('mouseleave', function(e) {
+  isDown = false;
+  slider.classList.remove('active');
+});
+slider.addEventListener('mouseup', function(e) {
+  isDown = false;
+  slider.classList.remove('active');
+});
+slider.addEventListener('mousemove', function(e) {
+  if (!isDown) {return;}
+  e.preventDefault();
+  var x = e.pageX - slider.offsetLeft;
+  slider.scrollLeft = scrollLeft - (x - startX) * 3;
+});
+
 </script>
 
   </body>
