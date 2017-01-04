@@ -28,10 +28,8 @@ What follows are finished pages from the coding challenge.
 17. [Sort Without Articles](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/17 - Sort Without Articles/index-START.html)
 18. [Adding Up Times with Reduce](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/18 - Adding Up Times with Reduce/index-START.html)
 22. [Follow Along Link Highlighter](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/22 - Follow Along Link Highlighter/index-START.html)
-23. Speech Synthesis
 24. [Sticky Nav](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/24 - Sticky Nav/index-START.html)
 25. [Event Capture, Propagation, Bubbling and Once](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/25 - Event Capture%2C Propagation%2C Bubbling and Once/index-START.html)
 27. [Click and Drag](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/27 - Click and Drag/index-START.html)
-28. Video Speed Controller
 29. [Countown Timer](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/29 - Countown Timer/index.html)
 30. [Whack A Mole](http://htmlpreview.github.io/?https://github.com/theJollySin/JavaScript30/blob/master/30 - Whack A Mole/index-START.html)
